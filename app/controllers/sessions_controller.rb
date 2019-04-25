@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       user = User.find_or_create_by_omniauth(auth_hash)
       session_login(user)
 
-    elsif @user = User.find_by(name: params[:user][:name])
+    elsif @user = User.find_by(email: params[:email])
       if @user.authenticate(params[:password])
          session_login(@user)
       else
