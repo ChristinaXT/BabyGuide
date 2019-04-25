@@ -19,7 +19,11 @@ class Request < ApplicationRecord
     end
   end
 
-  def finished_request
+  def finished_label
     finished? "Finished" : "Update Status"
+  end
+
+  def finished_class
+    finished? "text-success" : "text-danger"
   end
 end
