@@ -1,22 +1,47 @@
-<h1><%= @attraction.name %></h1>
+<h1><%= @checklist.item %></h1>
 
-<div class="center">
+<h5 class="text-secondary">Created by: <%= link_to @checklist.user.name, user_path(@checklist.user) %> </h5>
 
-    <div class="info">
-        <p>Ticket cost:<%= @attraction.tickets %></p>
-        <p>Minimum Heigh restriction: <%= @attraction.min_height %></p>
-        <p>Nausea Rating:<%= @attraction.nausea_rating %></p>
-        <p>Happiness Rating:<%= @attraction.happiness_rating %></p>
-    </div>
+<% if current_user.checklists.include?(@checklist) %>
+    <p><%= link_to "Change Item", edit_user_checklist_path(@checklist) %></p>
 
-    <% if current_user.admin %>
-            <p><%= link_to "Edit Attraction", edit_attraction_path(@attraction) %></p>
-    <% else %>
-        <%= form_for(@ride) do |f| %>
-            <%= f.hidden_field :user_id %>
-            <%= f.hidden_field :attraction_id %>
-            <%= f.submit "Go on this ride", class: "btn-primary" %>
-        <% end %>
-    <% end %>
+    <p><%= link_to "Add a Request", new_checklist_request_path(@checklist) %></p>
+
+<% end %>
+
+<div>
+
+    <table class="table">
+      <tbody>
+      <tr>
+          <th>Request</th>
+          <th>Finished/Unfinished</th>
+          <th>Checkout Request</th>
+      </tr>
+
+      <% @checklist.requests.each do |request| %>
+          <tr>
+              <td><%= request.item %></td>
+              <% if request.finished %>
+              <td class="text-success"><%= request.status %></td>
+              <% else %>
+              <td class="text-danger"><%= request.status %></td>
+              <% end %>
+              <td><%= link_to "Checkout", checklist_request_path(@checklist, request) %></td>
+
+          <% end %>
+          </tr>
+
+      </tbody>
+      </table>
+
+         <% if current_user.checklists.include?(@checklist) %>
+         <p>
+           <%= form_for @checklist, method: :delete do |f| %>
+               <%= f.submit "Delete Checklist", class: "text-danger" %>
+           <% end %>
+       </p>
+
+<% end %>
 
 </div>
