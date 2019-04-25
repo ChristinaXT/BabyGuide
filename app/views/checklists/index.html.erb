@@ -1,26 +1,25 @@
-<h1><Look at our ATTRACTIONS!!/h1>
 <div>
     <table class="table">
     <tbody>
         <tr>
-            <th>Name</th>
-            <th>Ticket Cost</th>
-            <th>Details</th>
+            <th>Checklists</th>
+            <th>Finished/Unfinished</th>
+            <th>Add to checklist</th>
         </tr>
-        <% @attractions.each do |attraction| %>
+        <% @checklists.each do |checklist| %>
         <tr>
-            <td><%= attraction.name %></td>
-            <td><%= attraction.tickets %></td>
-            <% if current_user.admin %>
-                <td><%= link_to "Show #{attraction.name}", attraction_path(attraction) %></td>
+            <td><%= checklist.item %></td>
+            <% if checklist.checklist_finished? %>
+                <td class="text-success">Finished</td>
             <% else %>
-                <td><%= link_to "Go on #{attraction.name}", attraction_path(attraction) %></td>
+                <td class="text-danger">Unfinished</td>
             <% end %>
+            <td><%= link_to "Add to", checklist_path(checklist) %></td>
         <% end %>
         </tr>
         </tbody>
     </table>
-    <% if current_user.admin %>
-    <p><%= link_to 'New Attraction', new_attraction_path %></p>
-    <% end %>
+    
+    <p><%= link_to "Create a Checklist", new_user_checklist_path(current_user) %></p>
+
 </div>
