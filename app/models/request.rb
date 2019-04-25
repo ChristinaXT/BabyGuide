@@ -20,6 +20,6 @@ class Request < ApplicationRecord
   end
 
   def finished_request
-    finished ? "Finished" : "Update Status"
+    finished? "Finished" : "Update Status"
   end
-end 
+end
