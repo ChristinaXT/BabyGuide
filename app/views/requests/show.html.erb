@@ -11,3 +11,5 @@
             <% if !@request.finished %>
                 <p class="text-info"><span class="text-danger">Status: <%= @request.status %></span></p>
             <% end %>
+
+            <%= form_for(@request, url: {controller: 'requests', action: 'update'}) do |f| %>
