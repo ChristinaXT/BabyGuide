@@ -1,20 +1,16 @@
 class RequestsController < ApplicationController
 
-  def index
-    @requests = Request.all
-  end
-
   def new
     @request = Request.new(checklist_id: params[:checklist_id])
   end
 
   def create
     @request = Request.create(request_params)
-        if @request.save
-          redirect_to checklist_request_path(@request.checklist, @request)
+      if @request.save
+        redirect_to checklist_request_path(@request.checklist, @request)
       else
-          render 'new'
-       end
+        render 'new'
+      end
    end
 
    def show
@@ -47,7 +43,7 @@ class RequestsController < ApplicationController
    def request_params
       params.require(:request).permit(
         :item,
-        :note, 
+        :note,
         :checklist_id,
         :finished,
         user_ids: []
