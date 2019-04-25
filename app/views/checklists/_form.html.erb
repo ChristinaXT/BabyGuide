@@ -1,0 +1,23 @@
+<%= form_for @checklist do |f| %>
+
+   <% if @checklist.errors.any? %>
+   <div id="error_explanation">
+      <h2 class="text-danger">
+        <%= pluralize(@checklist.errors.count, "error") %> prohibited this list from being saved:
+      </h2>
+
+      <ul>
+      <% @checklist.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+  <br>
+  <%= f.hidden_field :user_id %>
+
+  <%= f.submit class: "btn-primary" %>
+<% end %>
