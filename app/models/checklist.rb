@@ -4,7 +4,7 @@ class Checklist < ApplicationRecord
     has_many :requests
     belongs_to :user
 
-    def checklist_closed?
-        !requests.any?{|request| request.status == "Open"}
-    end 
+    def checklist_finished?
+        !requests.any?{|request| request.status == "Unfinished"}
+    end
 end
