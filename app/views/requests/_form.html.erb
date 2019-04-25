@@ -1,0 +1,27 @@
+<%= form_for(@request) do |f| %>
+
+   <% if @request.errors.any? %>
+   <div id="error_explanation">
+    <h2 class="text-danger">
+      <%= pluralize(@request.errors.count, "error") %> couldn't save request:
+    </h2>
+
+    <ul>
+        <% @request.errors.full_messages.each do |message| %>
+          <li class="text-danger"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+
+  <%= f.label :note %>
+  <%= f.text_field :note %>
+
+  <%= f.hidden_field :checklist_id %>
+
+  <%= f.submit class: "btn btn-primary" %>
+
+<% end %>
