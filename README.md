@@ -1,7 +1,7 @@
 # Baby Party Guide (BabyGuide) Rails Portfolio app
 
-This Baby Guide app allows a user to create lists for baby birthday party needs and to add requests that need to be completed.
-The requests can be assigned to other users who wish to help. Users can view each-other's lists and requests.
+This Baby Guide app allows a user to create checklists for baby birthday party needs and to add requests that need to be completed.
+The requests can be assigned to other users who wish to help. Users can view each-other's checklists and requests.
 
 ----------------------------------------------------------------------------
 
