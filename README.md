@@ -1,9 +1,12 @@
-#Baby Party Guide (BabyGuide) Rails Portfolio app
+<h1>Baby Party Guide (BabyGuide) Rails Portfolio app</h1>
+<br>
 This Baby Guide app allows a user to create checklists for baby birthday party needs and to add requests that need to be completed. The requests can be assigned to other users who wish to help. Users can view each-other's checklists and requests.
 
 Instructions : Clone the repository : git@github.com/ChristinaXT/BabyGuide.git
 
-Run : bundle install Run : thin start --ssl
+Run : bundle install
+<br>
+Run : thin start --ssl
 
 Locally, you can visit: https://localhost:3000
 
@@ -11,10 +14,10 @@ First you will create an account or login if you already have one. You can creat
 
 You will be directed to the requests page, which will have a list of requests and say whether they have been taken or not.
 
-#License:
+<h3>#License:</h3>
 
 
-MIT License
+<h2>MIT License</h2>
 
 Copyright (c) 2019 Christina
 
