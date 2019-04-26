@@ -2,11 +2,11 @@
 <br>
 This Baby Guide app allows a user to create checklists for baby birthday party needs and to add requests that need to be completed. The requests can be assigned to other users who wish to help. Users can view each-other's checklists and requests.
 
-Instructions : Clone the repository : git@github.com/ChristinaXT/BabyGuide.git
+<h3>Instructions:</h3> Clone the repository : git@github.com/ChristinaXT/BabyGuide.git
 
-Run : bundle install
+<h3>Run:</h3> bundle install
 <br>
-Run : thin start --ssl
+<h3>Run:</h3> thin start --ssl
 
 Locally, you can visit: https://localhost:3000
 
