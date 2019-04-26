@@ -41,4 +41,20 @@
         <table class="table">
             <tbody>
                 <tr>
-                  
+                  <th>Item</th>
+                    <th>Finished/Unfinished</th>
+                    <th>Expand Checklist</th>
+                </tr>
+                <% @user.checklists.each do |checklist| %>
+                    <tr>
+                        <td><%= checklist.item %></td>
+                    <% if checklist.checklist_finished? %>
+                        <td class="text-success">Finished</td>
+                    <% else %>
+                        <td class="text-danger">Unfinished</td>
+                    <% end %>
+                    <td><%= link_to "Expand", user_checklist_path(@user, checklist) %></td>
+                <% end %>
+                </tr>
+            </tbody>
+        </table>
