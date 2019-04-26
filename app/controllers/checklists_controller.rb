@@ -32,7 +32,7 @@ class ChecklistsController < ApplicationController
    else
        render 'edit'
     end
-  end
+ end
 
   def destroy
     checklist = Checklist.find_by(id: params[:id])

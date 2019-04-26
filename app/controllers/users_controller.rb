@@ -13,7 +13,7 @@ class UsersController < ApplicationController
          session_login(@user)
        else
           render 'new'
-       end
+      end
     end
 
     def show

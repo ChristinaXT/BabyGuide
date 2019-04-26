@@ -7,7 +7,7 @@ class UsersRequestsController < ApplicationController
     else
          redirect_to user_path(@user_request.user_id)
       end
-   end
+  end
 
   private
 

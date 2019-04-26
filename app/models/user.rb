@@ -28,5 +28,5 @@ class User < ApplicationRecord
       else
            []
        end
-   end 
+    end 
 end
