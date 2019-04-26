@@ -7,6 +7,8 @@ This Baby Guide app allows a user to create checklists for baby birthday party n
 <h3>Run:</h3> bundle install
 <br>
 <h3>Run:</h3> thin start --ssl
+<br>
+<br>
 
 Locally, you can visit: https://localhost:3000
 
