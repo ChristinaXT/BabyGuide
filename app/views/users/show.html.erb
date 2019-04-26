@@ -1,10 +1,21 @@
-<h1>Hello <%= @user.name %>!</h1>
+<h1>Hello <%= @user.name %></h1>
 
-<% if flash[:message] %>
-    <div class="center alert">
-        <p><%= flash[:message] %></p>
-    </div>
-<% end %>
+<div>
+    <div>
+    <% if current_user == @user %>
+        <% unless @open_requests.empty? %>
+            <p class="text-warning"><b>This is a baby party help request, please accept:</b></p>
+                <table class="table">
+                <tbody>
+                <tr>
+                    <th>Requests</th>
+                    <th>Accept</th>
+                </tr>
+                <% @open_requests.each do |user_request| %>
+                    <tr>
+                        <td><%= link_to user_request.request.item, user_request_path(user_request.user, user_request.request) %></td>
+                        <td>
+                        <%= form_for(user_request, url: users_request_path(user_request), method: :patch) do |f| %>
 
 <div>
     <% if @user.admin %>
