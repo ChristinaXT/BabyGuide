@@ -21,6 +21,7 @@
                 <% end %>
 
                 <%= f.submit @request.finished_label, class: @request.finished_klass %>
+
             <% end %>
 
           </div>
@@ -42,9 +43,19 @@
                 <ul>
                 <% @request.users.each do |user| %>
                     <li>
-                        <%= link_to user.name, user_path(user) %>
-                        <% if @request.open_users.include?(user) %>
-                           <span class="text-warning">Open</span>
+                        <p><%= link_to user.name, user_path(user) %></p>
+                        <br>
+                        <% if user == current_user && !@user_request.closed %>
+
+                        <%= form_for(@user_request, url: users_request_path(@user_request), method: :patch) do |f| %>
+
+                            <%= f.hidden_field :closed, value: true %>
+                            <%= f.submit "Accept Request", class: 'text-warning' %>
+
+                        <% end %>
+                      <% elsif @request.open_users.include?(user) %>
+                          <span class="text-warning">Open</span>
+
                         <% end %>
                     </li>
                 <% end %>
