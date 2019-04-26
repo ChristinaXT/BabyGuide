@@ -26,5 +26,19 @@
            </tbody>
            </table>
    <% end %>
+  </div>
 </div>
-</div>
+
+<div>
+        <h1><%= @user.name %></h1>
+        <p><%= link_to "Edit Info", edit_user_path(@user) %></p>
+        <h2 class="text-secondary">Your Checklists:</h2>
+    <% else %>
+        <h1><%= @user.name %>'s Page</h1>
+        <h2 class="text-secondary">Their Checklists:</h2>
+    <% end %>
+    <div>
+        <table class="table">
+            <tbody>
+                <tr>
+                  
