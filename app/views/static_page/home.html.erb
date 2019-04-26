@@ -35,14 +35,16 @@
 
      <p><%= link_to "Log Out", logout_path %></p>
 
+     <% else %>
+        <div>
+            <h1>Welcome to the Ultimate Baby Party Planning Guide!</h1>
 
+            <p class="text-secondary">This is the perfect place to organize the best baby party with a little help from your friends.</p>
 
-
-
-        <p><%= link_to "Your Profile", user_path(current_user.id) %></p>
-        <p><%= link_to "Log Out", controller: 'sessions', action: 'destroy' %></p>
-    <% else %>
-        <p><%= link_to "Sign Up", new_user_path %></p>
-        <p><%= link_to "Log In", signin_path %></p>
-    <% end %>
-</div>
+            <p class="text-secondary">Please signup or login.</p>
+          </div>
+              <p><%= link_to "Sign Up", signup_path %></p>
+              <p><%= link_to "Log In", login_path %></p>
+              <p><%= link_to('Log in with Facebook!', '/auth/facebook') %></p>
+      <% end %>
+  </div>
