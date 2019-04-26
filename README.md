@@ -2,15 +2,15 @@
 <br>
 This Baby Guide app allows a user to create checklists for baby birthday party needs and to add requests that need to be completed. The requests can be assigned to other users who wish to help. Users can view each-other's checklists and requests.
 
-<h3>Instructions:</h3> Clone the repository : git@github.com/ChristinaXT/BabyGuide.git
+<h3>Instructions:</h3> This repository : git@github.com/ChristinaXT/BabyGuide.git
 
-<h3>Run:</h3> bundle install
-<br>
-<h3>Run:</h3> thin start --ssl
-<br>
-<br>
-
-Locally, you can visit: https://localhost:3000
+1. Fork this repository & clone into it from your terminal
+2. CD into the application
+3. Make sure to run 'bundle install' to install all required gem dependencies
+4. Run 'rake db:migrate'
+5. Run 'rails s' and navigate to the localhost port displayed in your terminal.
+6. In your browser, navigate to localhost:3000.
+7. Locally, you can visit: https://localhost:3000
 
 First you will create an account or login if you already have one. You can create account through Facebook if you like.
 
