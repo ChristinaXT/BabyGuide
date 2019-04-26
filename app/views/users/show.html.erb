@@ -70,3 +70,33 @@
        <h2 class="text-secondary">Their Requests:</h2>
    <% end %>
        <table class="table">
+
+       <table class="table">
+       <tbody>
+           <tr>
+              <th>Item</th>
+              <th>Finished/Unfinished</th>
+              <th>Closed/Open</th>
+              <th>Checkout Request</th>
+             </tr>
+             <% @user.requests.each do |request| %>
+                 <tr>
+                     <td><%= request.item %></td>
+                     <% if request.finished %>
+                     <td class="text-success"><%= request.status %></td>
+                     <% else %>
+                     <td class="text-danger"><%= request.status %></td>
+                     <% end %>
+
+                     <% if request.user_closed?(@user) %>
+                     <td class="text-success">Closed</td>
+                     <% else %>
+                     <td class="text-warning">Open</td>
+                     <% end %>
+                     <td><%= link_to "Checkout", user_request_path(@user, request) %></td>
+             <% end %>
+             </tr>
+         </tbody>
+         </table>
+     </div>
+ </div>
