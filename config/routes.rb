@@ -8,22 +8,22 @@ Rails.application.routes.draw do
     get '/logout' => 'session#destroy'
 
 
-    resources :tasks, only: [:create, :destroy, :edit, :update] do
+    resources :requests, only: [:create, :destroy, :edit, :update] do
        resources :users, only: [:show]
      end
 
-     resources :lists, only: [:index, :show, :create, :update, :destroy] do
-       resources :tasks, only: [:new, :show, :edit, :update, :destroy]
+     resources :checklists, only: [:index, :show, :create, :update, :destroy] do
+       resources :requests, only: [:new, :show, :edit, :update, :destroy]
      end
 
      resources :users, only: [:create, :destroy, :edit, :update, :show] do
-       resources :lists, only: [:new, :edit, :show, :update, :destroy]
+       resources :checklists, only: [:new, :edit, :show, :update, :destroy]
      end
 
      resources :users do
-       resources :tasks, only: [:show, :edit]
+       resources :requests, only: [:show, :edit]
      end
 
-     resources :users_tasks
+     resources :users_requests
      # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    end
