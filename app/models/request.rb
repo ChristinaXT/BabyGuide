@@ -1,16 +1,16 @@
 class Request < ApplicationRecord
   validates :item, presence: true
 
-  has_many :users_request
-  has_many :users, through: :users_request
+  has_many :users_requests
+  has_many :users, through: :users_requests
   belongs_to :checklist
 
   def status
-    finished? "Finished" : "Unfinished"
+    finished ? Finished : Unfinished
   end
 
   def user_closed?(user)
-    users_request.find{|user_request|user_request.user_id == user.id}.closed
+    users_request.find { |user_request| user_request.user_id == user.id }.closed
   end
 
   def open_users
@@ -20,10 +20,10 @@ class Request < ApplicationRecord
   end
 
   def finished_label
-    finished? "Finished" : "Update Status"
+    finished ? Finished : Update_Status
   end
 
   def finished_klass
-    finished? "text-success" : "text-danger"
+    finished ? Text_success : Text_danger
   end
 end
