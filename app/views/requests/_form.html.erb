@@ -3,7 +3,7 @@
    <% if @request.errors.any? %>
    <div id="error_explanation">
     <h2 class="text-danger">
-      <%= pluralize(@request.errors.count, "error") %> couldn't save request:
+      <%= pluralize(@request.errors.count, "error") %> prohibited this list from being saved:
     </h2>
 
     <ul>
