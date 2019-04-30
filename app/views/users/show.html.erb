@@ -14,7 +14,6 @@
                         <td><%= link_to user_request.request.item, user_request_path(user_request.user, user_request.request) %></td>
                         <td>
                         <%= form_for(user_request, url: users_request_path(user_request), method: :patch) do |f| %>
-
                         <%= f.hidden_field :taken, value: true %>
                        <%= f.submit "Accept Request" %>
                    <% end %>
@@ -26,7 +25,6 @@
    <% end %>
   </div>
 </div>
-
 <div>
         <h1><%= @user.name %></h1>
         <p><%= link_to "Edit Info", edit_user_path(@user) %></p>
@@ -60,7 +58,6 @@
            <p><%= link_to "New Checklist", new_user_checklist_path(@user) %></p>
        <% end %>
    </div>
-
    <div>
    <% if current_user == @user %>
        <h2 class="text-secondary">Your Requests:</h2>
@@ -68,14 +65,13 @@
        <h2 class="text-secondary">Their Requests:</h2>
    <% end %>
        <table class="table">
-
        <table class="table">
        <tbody>
            <tr>
               <th>Item</th>
               <th>Finished/Unfinished</th>
-              <th>taken/untaken</th>
-              <th>Checkout Request</th>
+              <th>Taken/Untaken</th>
+              <th>See Request</th>
              </tr>
              <% @user.requests.each do |request| %>
                  <tr>
@@ -85,13 +81,12 @@
                      <% else %>
                      <td class="text-danger"><%= request.status %></td>
                      <% end %>
-
                      <% if request.user_taken?(@user) %>
                      <td class="text-success">taken</td>
                      <% else %>
                      <td class="text-warning">untaken</td>
                      <% end %>
-                     <td><%= link_to "Checkout", user_request_path(@user, request) %></td>
+                     <td><%= link_to "See", user_request_path(@user, request) %></td>
              <% end %>
              </tr>
          </tbody>

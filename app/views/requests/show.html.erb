@@ -11,25 +11,19 @@
             <% if !@request.finished %>
                 <p class="text-info"><span class="text-danger">Status: <%= @request.status %></span></p>
             <% end %>
-
              <%= form_for(@request, url: {controller: 'requests', action: 'update'}) do |f| %>
-
                 <% if @request.finished %>
                 <%= f.hidden_field :finished, value: false  %>
                 <% else %>
                 <%= f.hidden_field :finished, value: true %>
                 <% end %>
-
                 <%= f.submit @request.finished_label, class: @request.finished_klass %>
-
             <% end %>
-
           </div>
          <div class="col-sm">
              <% if current_user.checklist_requests(@request.checklist).include?(@request) %>
                  <p><%= link_to "Edit Request", edit_user_request_path(@request) %></p>
                  <p><b>Give this request to a User:</b></p>
-
                  <%= form_for @request, url: {controller: 'requests', action: 'update'} do |f|%>
                      <%= collection_check_boxes(:request, :user_ids, User.all, :id, :name) %>
                      <br>
@@ -38,7 +32,6 @@
              <% end %>
          <div class="p-3">
              <p><b>Users Given Request:</b></p>
-
              <% if @request.users %>
                 <ul>
                 <% @request.users.each do |user| %>
@@ -46,16 +39,12 @@
                         <p><%= link_to user.name, user_path(user) %></p>
                         <br>
                         <% if user == current_user && !@user_request.taken %>
-
                         <%= form_for(@user_request, url: users_request_path(@user_request), method: :patch) do |f| %>
-
                             <%= f.hidden_field :taken, value: true %>
                             <%= f.submit "Accept Request", class: 'text-warning' %>
-
                         <% end %>
                       <% elsif @request.untaken_users.include?(user) %>
                           <span class="text-warning">Untaken</span>
-
                         <% end %>
                     </li>
                 <% end %>
