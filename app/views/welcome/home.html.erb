@@ -7,7 +7,7 @@
             <tr>
                 <th>Item</th>
                 <th>Finshed/Unfinished</th>
-                <th>Closed/Open</th>
+                <th>Taken/Untaken</th>
                 <th>Checkout Request</th>
                 </tr>
                 <% current_user.requests.each do |request| %>
@@ -20,10 +20,10 @@
                         <td class="text-danger"><%= request.status %></td>
                         <% end %>
 
-                        <% if request.user_closed?(current_user) %>
-                        <td class="text-success">Closed</td>
+                        <% if request.user_taken?(current_user) %>
+                        <td class="text-success">Taken</td>
                      <% else %>
-                        <td class="text-warning">Open</td>
+                        <td class="text-warning">Untaken</td>
                         <% end %>
 
                         <td><%= link_to "Checkout", user_request_path(current_user, request) %></td>

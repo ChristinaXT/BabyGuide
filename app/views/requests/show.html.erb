@@ -45,16 +45,16 @@
                     <li>
                         <p><%= link_to user.name, user_path(user) %></p>
                         <br>
-                        <% if user == current_user && !@user_request.closed %>
+                        <% if user == current_user && !@user_request.taken %>
 
                         <%= form_for(@user_request, url: users_request_path(@user_request), method: :patch) do |f| %>
 
-                            <%= f.hidden_field :closed, value: true %>
+                            <%= f.hidden_field :taken, value: true %>
                             <%= f.submit "Accept Request", class: 'text-warning' %>
 
                         <% end %>
-                      <% elsif @request.open_users.include?(user) %>
-                          <span class="text-warning">Open</span>
+                      <% elsif @request.untaken_users.include?(user) %>
+                          <span class="text-warning">Untaken</span>
 
                         <% end %>
                     </li>

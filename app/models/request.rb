@@ -9,18 +9,18 @@ class Request < ApplicationRecord
     finished ? 'Finished' : 'Unfinished'
   end
 
-  def user_closed?(user)
-    users_request.find { |user_request| user_request.user_id == user.id }.closed
+  def user_taken?(user)
+    users_request.find {|user_request|user_request.user_id == user.id}.taken
   end
 
-  def open_users
+  def untaken_users
     users.select do |user|
-      user_closed?(user) == false
+      user_taken?(user) == false
     end
   end
 
   def finished_label
-    finished ? 'Finished' : 'Update_Status'
+    finished ? 'Finished' : 'Update Status'
   end
 
   def finished_klass

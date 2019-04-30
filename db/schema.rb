@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_003418) do
   create_table "users_requests", force: :cascade do |t|
     t.integer "user_id"
     t.integer "request_id"
-    t.boolean "closed", default: false
+    t.boolean "taken", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

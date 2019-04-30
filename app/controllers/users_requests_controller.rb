@@ -12,6 +12,6 @@ class UsersRequestsController < ApplicationController
   private
 
   def users_request_params
-     params.require(:users_request).permit(:closed, :user_id, :request_id)
+     params.require(:users_request).permit(:taken, :user_id, :request_id)
   end
 end

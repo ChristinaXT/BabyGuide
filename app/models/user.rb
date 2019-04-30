@@ -18,10 +18,6 @@ class User < ApplicationRecord
         end
     end
 
-    def open_users_requests
-      UsersRequest.open_by_user(self)
-    end
-
     def checklist_requests(user_checklist)
        if checklists.include?(user_checklist)
          user_checklist.requests

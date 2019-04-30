@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     def show
       @user = User.find_by_id(params[:id])
-      @open_user_requests = UsersRequest.open_by_user(@user)
+      @untaken_user_requests = UsersRequest.untaken_by_user(@user)
     end
 
     def edit
