@@ -6,7 +6,7 @@ class Request < ApplicationRecord
   belongs_to :checklist
 
   def status
-    finished ? Finished : Unfinished
+    finished ? 'Finished' : 'Unfinished'
   end
 
   def user_closed?(user)
@@ -15,15 +15,15 @@ class Request < ApplicationRecord
 
   def open_users
     users.select do |user|
-    user_closed?(user) == false
+      user_closed?(user) == false
     end
   end
 
   def finished_label
-    finished ? Finished : Update_Status
+    finished ? 'Finished' : 'Update_Status'
   end
 
   def finished_klass
-    finished ? Text_success : Text_danger
+    finished ? 'Text-success' : 'Text-danger'
   end
 end

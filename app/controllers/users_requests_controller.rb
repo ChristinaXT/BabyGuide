@@ -1,7 +1,7 @@
 class UsersRequestsController < ApplicationController
 
   def update
-    @user_request = UsersRequest.find_by(id: params[:id])
+    @user_request = UsersRequests.find_by(id: params[:id])
       if @user_request.update(users_request_params)
          redirect_to user_path(@user_request.user_id)
     else

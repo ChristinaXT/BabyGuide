@@ -11,36 +11,36 @@ class RequestsController < ApplicationController
       else
         render 'new'
       end
-   end
+  end
 
-   def show
-     @request = Request.find_by(id: params[:id])
-     @users_request = @request.users_request.find{|user_request|user_request.user_id == current_user.id}
-   end
+  def show
+    @request = Request.find_by(id: params[:id])
+    @users_request = @request.users_requests.build(user_id: current_user.id)
+  end
 
-   def edit
+  def edit
      @request = Request.find_by(id: params[:id])
-   end
+  end
 
-   def update
-     @request = Request.find_by(id: params[:id])
-       if @request.update(task_params)
+  def update
+    @request = Request.find_by(id: params[:id])
+      if @request.update(request_params)
          redirect_to checklist_request_path(@request.checklist, @request)
       else
          render 'edit'
-       end
-   end
+      end
+  end
 
-   def destroy
+  def destroy
      request = Request.find_by(id: params[:id])
      @checklist = request.checklist
      request.destroy
      redirect_to checklist_path(@checklist)
-   end
+  end
 
    private
 
-   def request_params
+  def request_params
       params.require(:request).permit(
         :item,
         :note,
@@ -48,5 +48,5 @@ class RequestsController < ApplicationController
         :finished,
         user_ids: []
       )
-    end
+  end
 end
