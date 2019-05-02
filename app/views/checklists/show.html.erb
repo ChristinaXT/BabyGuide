@@ -16,7 +16,7 @@
       <tr>
           <th>Request</th>
           <th>Finished/Unfinished</th>
-          <th>See Request</th>
+          <th>Open Request</th>
       </tr>
 
       <% @checklist.requests.each do |request| %>
@@ -27,7 +27,7 @@
               <% else %>
               <td class="text-danger"><%= request.status %></td>
               <% end %>
-              <td><%= link_to "See", checklist_request_path(@checklist, request) %></td>
+              <td><%= link_to "Open", checklist_request_path(@checklist, request) %></td>
 
           <% end %>
           </tr>

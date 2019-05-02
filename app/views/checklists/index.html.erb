@@ -4,7 +4,7 @@
         <tr>
             <th>Checklists</th>
             <th>Finished/Unfinished</th>
-            <th>Expand checklist</th>
+            <th>Open Checklist</th>
         </tr>
         <% @checklists.each do |checklist| %>
         <tr>
@@ -14,12 +14,12 @@
             <% else %>
                 <td class="text-danger">Unfinished</td>
             <% end %>
-            <td><%= link_to "Expand", checklist_path(checklist) %></td>
+            <td><%= link_to "Open", checklist_path(checklist) %></td>
         <% end %>
         </tr>
         </tbody>
     </table>
 
-    <p><%= link_to "Create a Checklist", new_user_checklist_path(current_user) %></p>
+    <p><%= link_to "New Checklist", new_user_checklist_path(current_user) %></p>
 
 </div>

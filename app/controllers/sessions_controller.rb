@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_user_is_authenticated, only: [:new,:create]
-  def new
 
+  def new
+    if current_user
+      redirect_to '/'
+    else
+      @user = User.new
+    end
   end
 
   def create

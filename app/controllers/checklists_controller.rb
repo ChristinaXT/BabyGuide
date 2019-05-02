@@ -13,6 +13,7 @@ class ChecklistsController < ApplicationController
       if @checklist.save
          redirect_to user_checklist_path(current_user, @checklist)
     else
+        flash[:notice] = "checklist creation was unsuccessful"
         render 'new'
       end
   end
@@ -30,6 +31,7 @@ class ChecklistsController < ApplicationController
     if @checklist.update(checklist_params)
       redirect_to checklist_path(@checklist)
    else
+       flash[:notice] = "something went wrong"
        render 'edit'
     end
  end
