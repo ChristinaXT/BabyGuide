@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find_by(id: params[:id])
-    @users_request = @request.users_requests.build(user_id: current_user.id)
+    @user_request = @request.users_request.find{|user_request|user_request.user_id == current_user.id}
   end
 
   def edit

@@ -8,8 +8,8 @@ class User < ApplicationRecord
     has_secure_password
 
     has_many :checklists
-    has_many :users_requests
-    has_many :requests, through: :users_requests
+    has_many :users_request
+    has_many :requests, through: :users_request
 
     def self.find_or_create_by_omniauth(auth_hash)
         where(email: auth_hash["info"]["email"]).first_or_create do |user|

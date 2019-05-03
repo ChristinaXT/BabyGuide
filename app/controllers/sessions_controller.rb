@@ -2,11 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :verify_user_is_authenticated, only: [:new,:create]
 
   def new
-    if current_user
-      redirect_to '/'
-    else
-      @user = User.new
-    end
+
   end
 
   def create
@@ -21,7 +17,11 @@ class SessionsController < ApplicationController
         flash[:message] = "Password Incorrect"
         render controller: 'users', action: 'new'
       end
+    else
+     flash[:message] = "Incorrect Email and/or Pasword!"
+     render controller: 'users', action: 'new'
     end
+  end
 
   def destroy
     session.delete :user_id

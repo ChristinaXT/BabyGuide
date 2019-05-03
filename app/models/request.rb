@@ -1,8 +1,8 @@
 class Request < ApplicationRecord
   validates :item, presence: true
 
-  has_many :users_requests
-  has_many :users, through: :users_requests
+  has_many :users_request
+  has_many :users, through: :users_request
   belongs_to :checklist
 
   def status

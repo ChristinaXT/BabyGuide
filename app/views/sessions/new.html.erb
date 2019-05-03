@@ -1,6 +1,14 @@
-<%= form_tag(controller: 'sessions', action: 'create') do %>
-    <%= label_tag :name %>
-    <%= collection_select(:user, :name, User.all, :name, :name, prompt: "Please choose username") %>
+<h2>Please Log In</h2>
+
+<p class="text-danger">
+    <% unless flash[:message].nil? %>
+        <%= flash[:message] %>
+    <% end %>
+</p>
+
+<%= form_tag(login_path) do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
     <br>
 
     <%= label_tag :password %>

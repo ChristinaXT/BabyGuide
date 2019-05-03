@@ -8,7 +8,7 @@
                 <th>Item</th>
                 <th>Finshed/Unfinished</th>
                 <th>Taken/Untaken</th>
-                <th>See Request</th>
+                <th>Keep Request</th>
                 </tr>
                 <% current_user.requests.each do |request| %>
                     <tr>
@@ -26,7 +26,7 @@
                         <td class="text-warning">Untaken</td>
                         <% end %>
 
-                        <td><%= link_to "See", user_request_path(current_user, request) %></td>
+                        <td><%= link_to "Keep", user_request_path(current_user, request) %></td>
                 <% end %>
               </tr>
          </tbody>

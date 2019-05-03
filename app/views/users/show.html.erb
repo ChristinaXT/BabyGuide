@@ -39,7 +39,7 @@
                 <tr>
                   <th>Item</th>
                     <th>Finished/Unfinished</th>
-                    <th>Expand Checklist</th>
+                    <th>Open Checklist</th>
                 </tr>
                 <% @user.checklists.each do |checklist| %>
                     <tr>
@@ -49,7 +49,7 @@
                     <% else %>
                         <td class="text-danger">Unfinished</td>
                     <% end %>
-                    <td><%= link_to "Expand", user_checklist_path(@user, checklist) %></td>
+                    <td><%= link_to "Open", user_checklist_path(@user, checklist) %></td>
                 <% end %>
                 </tr>
             </tbody>
@@ -71,7 +71,7 @@
               <th>Item</th>
               <th>Finished/Unfinished</th>
               <th>Taken/Untaken</th>
-              <th>See Request</th>
+              <th>Keep Request</th>
              </tr>
              <% @user.requests.each do |request| %>
                  <tr>
@@ -86,7 +86,7 @@
                      <% else %>
                      <td class="text-warning">untaken</td>
                      <% end %>
-                     <td><%= link_to "See", user_request_path(@user, request) %></td>
+                     <td><%= link_to "Keep", user_request_path(@user, request) %></td>
              <% end %>
              </tr>
          </tbody>
