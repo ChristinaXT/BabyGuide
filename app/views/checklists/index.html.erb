@@ -2,9 +2,9 @@
     <table class="table">
     <tbody>
         <tr>
-            <th>Checklists</th>
-            <th>Finished/Unfinished</th>
-            <th>Open Checklist</th>
+            <th>Checklists &nbsp;</th>
+            <th>Finished/Unfinished &nbsp;</th>
+            <th>See Requests &nbsp;</th>
         </tr>
         <% @checklists.each do |checklist| %>
         <tr>
@@ -20,6 +20,6 @@
         </tbody>
     </table>
 
-    <p><%= link_to "New Checklist", new_user_checklist_path(current_user) %></p>
+    <p><%= link_to "Create a New Request Checklist", new_user_checklist_path(current_user) %></p>
 
 </div>

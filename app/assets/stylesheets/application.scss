@@ -29,14 +29,14 @@
 
  body {
    background-color: lightblue;
-   color: black;
+   color: blue;
    }
 
  a {
-   color: #20079A;;
+   color: fuchsia;;
  }
  div.container {
-   background-color: pink;
+   background-color: #FFCFD8;
    display: block;
    margin: 0 auto;
    width: 85%;
@@ -44,7 +44,7 @@
 
  }
  .container li {
-   border-left: solid 1px grey;
+   border-left: solid 1px maroon;
    display: inline;
    margin: 0px;
    padding: 0px;
@@ -52,7 +52,7 @@
  }
 
  div.content {
-   background-color: white;
+   background-color: yellow;
    padding: 10px;
    width: 85%;
    margin: 0 auto;
@@ -61,5 +61,5 @@
 
  .center {
    text-align: center;
-   border: solid 2px grey;
+   border: solid 2px blue;
  }

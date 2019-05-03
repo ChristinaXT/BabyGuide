@@ -1,6 +1,6 @@
 <h1><%= @checklist.item %></h1>
 
-<h5 class="text-secondary">Created by: <%= link_to @checklist.user.name, user_path(@checklist.user) %> </h5>
+<h3 class="text-secondary">Created by: <%= link_to @checklist.user.name, user_path(@checklist.user) %> </h3>
 
 <% if current_user.checklists.include?(@checklist) %>
     <p><%= link_to "Change Item", edit_user_checklist_path(@checklist) %></p>
@@ -14,9 +14,8 @@
     <table class="table">
       <tbody>
       <tr>
-          <th>Request</th>
-          <th>Finished/Unfinished</th>
-          <th>Keep Request</th>
+          <th>Request &nbsp;</th>
+          <th>Finished/Unfinished &nbsp;</th>
       </tr>
 
       <% @checklist.requests.each do |request| %>
@@ -27,7 +26,7 @@
               <% else %>
               <td class="text-danger"><%= request.status %></td>
               <% end %>
-              <td><%= link_to "Keep Request", checklist_request_path(@checklist, request) %></td>
+              <td><%= link_to "See Request", checklist_request_path(@checklist, request) %></td>
 
           <% end %>
           </tr>

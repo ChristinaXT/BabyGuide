@@ -6,8 +6,8 @@
                 <table class="table">
                 <tbody>
                 <tr>
-                    <th>Requests</th>
-                    <th>Accept</th>
+                    <th>Requests &nbsp;</th>
+                    <th>Accept &nbsp;</th>
                 </tr>
                 <% @untaken_user_requests.each do |user_request| %>
                     <tr>
@@ -37,9 +37,9 @@
         <table class="table">
             <tbody>
                 <tr>
-                  <th>Item</th>
-                    <th>Finished/Unfinished</th>
-                    <th>Open Checklist</th>
+                  <th>Item &nbsp;</th>
+                    <th>Finished/Unfinished &nbsp;</th>
+                    <th>Open Checklist &nbsp;</th>
                 </tr>
                 <% @user.checklists.each do |checklist| %>
                     <tr>
@@ -71,7 +71,6 @@
               <th>Item</th>
               <th>Finished/Unfinished</th>
               <th>Taken/Untaken</th>
-              <th>Keep Request</th>
              </tr>
              <% @user.requests.each do |request| %>
                  <tr>
@@ -86,7 +85,7 @@
                      <% else %>
                      <td class="text-warning">untaken</td>
                      <% end %>
-                     <td><%= link_to "Keep", user_request_path(@user, request) %></td>
+                     <td><%= link_to "See Request", user_request_path(@user, request) %></td>
              <% end %>
              </tr>
          </tbody>

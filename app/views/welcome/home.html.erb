@@ -1,14 +1,14 @@
 <div>
     <% if current_user %>
         <h1>Welcome <%= current_user.name %>!</h1>
+        <h2>Click on checklists to see current requests or to create new ones.</h2>
     <div>
     <table class="table">
         <tbody>
             <tr>
-                <th>Item</th>
-                <th>Finshed/Unfinished</th>
-                <th>Taken/Untaken</th>
-                <th>Keep Request</th>
+                <th>Item &nbsp;</th>
+                <th>Finshed/Unfinished &nbsp;</th>
+                <th>Taken/Untaken &nbsp;</th>
                 </tr>
                 <% current_user.requests.each do |request| %>
                     <tr>
@@ -26,7 +26,7 @@
                         <td class="text-warning">Untaken</td>
                         <% end %>
 
-                        <td><%= link_to "Keep", user_request_path(current_user, request) %></td>
+                        <td><%= link_to "See Request", user_request_path(current_user, request) %></td>
                 <% end %>
               </tr>
          </tbody>
@@ -41,7 +41,7 @@
 
             <p class="text-secondary">This is the perfect place to organize the best baby party with a little help from your friends.</p>
 
-            <p class="text-secondary">Please Sign Up or Login.</p>
+            <p class="text-secondary">Please Sign Up or Log In.</p>
           </div>
               <p><%= link_to "Sign Up", signup_path %></p>
               <p><%= link_to "Log In", login_path %></p>
