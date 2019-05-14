@@ -14,11 +14,11 @@ class SessionController < ApplicationController
       if @user.authenticate(params[:password])
          session_login(@user)
       else
-        flash[:message] = "Password Incorrect"
+        flash[:message] = "That password is incorrect"
         render controller: 'users', action: 'new'
       end
     else
-     flash[:message] = "Incorrect Email and/or Pasword!"
+     flash[:message] = "Incorrect Email and/or Password!"
      render controller: 'users', action: 'new'
     end
   end

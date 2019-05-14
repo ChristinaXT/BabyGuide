@@ -13,7 +13,7 @@ class ChecklistsController < ApplicationController
       if @checklist.save
          redirect_to user_checklist_path(current_user, @checklist)
     else
-        flash[:notice] = "checklist creation was unsuccessful"
+        flash[:notice] = "Your checklist creation was unsuccessful"
         render 'new'
       end
   end
@@ -31,7 +31,7 @@ class ChecklistsController < ApplicationController
     if @checklist.update(checklist_params)
       redirect_to checklist_path(@checklist)
    else
-       flash[:notice] = "something went wrong"
+       flash[:notice] = "Something went wrong, please try again"
        render 'edit'
     end
  end
@@ -45,6 +45,9 @@ class ChecklistsController < ApplicationController
     private
 
  def checklist_params
-    params.require(:checklist).permit(:item, :user_id)
+    params.require(:checklist).permit(
+      :item,
+      :user_id
+    )
  end
 end
