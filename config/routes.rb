@@ -24,6 +24,7 @@ Rails.application.routes.draw do
        resources :requests, only: [:show, :edit]
      end
 
-     resources :users_requests
+     resources :users_requests, only: [:update]
+
      # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    end

@@ -9,7 +9,7 @@ class ChecklistsController < ApplicationController
   end
 
   def create
-    @checklist = Checklist.create(checklist_params)
+    @checklist = Checklist.new(checklist_params)
       if @checklist.save
          redirect_to user_checklist_path(current_user, @checklist)
     else
