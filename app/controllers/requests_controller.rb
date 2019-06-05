@@ -1,5 +1,9 @@
 class RequestsController < ApplicationController
 
+  def index
+    @requests = Request.all.most
+  end
+  
   def new
     @request = Request.new(checklist_id: params[:checklist_id])
   end
