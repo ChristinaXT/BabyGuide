@@ -21,6 +21,7 @@ class ChecklistsController < ApplicationController
   #scope method
  def users_with_most_requests
    @checklists = Checklist.users_with_most_requests
+   #@recent_checklists = Checklist.most_recent(5)
  end
 
 
