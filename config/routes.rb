@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/logout' => 'session#destroy'
 
     get '/checklists/users_with_most_requests' => 'checklists#users_with_most_requests'
+    get '/checklists/requests_untaken' => 'checklists#requests_untaken'
 
 
     resources :requests, only: [:create, :destroy, :edit, :update] do
