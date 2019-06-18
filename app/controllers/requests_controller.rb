@@ -1,8 +1,8 @@
 class RequestsController < ApplicationController
 
-  def index
-    @requests = Request.all.most
-  end
+  #def index
+    #@requests = Request.all.most
+  #end
 
   #scope method
   def finished_requests
