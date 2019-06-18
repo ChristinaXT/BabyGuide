@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/logout' => 'session#destroy'
 
     get '/users/users_with_most_requests' => 'users#users_with_most_requests'
+    get '/users_requests/finished_users_requests' => 'users_requests#finished_users_requests'
 
 
 

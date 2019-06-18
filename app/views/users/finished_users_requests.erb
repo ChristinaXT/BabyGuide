@@ -1,0 +1,15 @@
+<h1>Finished Users Requests</h1>
+
+<table class="table">
+
+
+<% @users_requests.finished_users_requests.each do |users_request| %>
+  <tr>
+   <td><%= users_request.item %></td>
+  </tr>
+
+  <% end %>
+</table>
+ <p><%= link_to "Create a New Request Checklist", new_user_checklist_path(current_user) %></p>
+
+<div>
