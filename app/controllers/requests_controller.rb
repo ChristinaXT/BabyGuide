@@ -9,6 +9,10 @@ class RequestsController < ApplicationController
   @requests = Request.finished_requests
   end
 
+  def whatever
+    @requests = Request.requests_with_kids_in_note
+  end
+
   def new
     @request = Request.new(checklist_id: params[:checklist_id])
   end

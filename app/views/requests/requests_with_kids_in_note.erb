@@ -1,0 +1,14 @@
+<h1>Requests With Kids In Note</h1>
+
+<table class="table">
+
+<% @requests.requests_with_kids_in_note.each do |request| %>
+  <tr>
+   <td><%= request.item %></td>
+  </tr>
+
+<% end %>
+</table>
+ <p><%= link_to "Create a New Request Checklist", new_user_checklist_path(current_user) %></p>
+
+<div>

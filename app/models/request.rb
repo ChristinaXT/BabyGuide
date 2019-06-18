@@ -27,5 +27,7 @@ class Request < ApplicationRecord
     finished ? 'Text-success' : 'Text-danger'
   end
 
-  scope :finished_requests, -> { Request.group('requests.id').where('finished')}
+  scope :finished_requests, -> { Request.where('requests.id').where('finished')}
+  scope :requests_with_kids_in_note, -> { Request.where(:note).includes('kids')}
+
 end
