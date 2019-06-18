@@ -18,4 +18,5 @@ class UsersRequestsController < ApplicationController
        :request_id
      )
   end
+
 end

@@ -18,16 +18,6 @@ class ChecklistsController < ApplicationController
       end
   end
 
-  #scope method
- def users_with_most_requests
-   @checklists = Checklist.users_with_most_requests
-   #@recent_checklists = Checklist.most_recent(5)
- end
-
-def requests_untaken
-  @checklists = Checklist.requests_untaken
-end
-
  def show
     @checklist = Checklist.find_by(id: params[:id])
  end

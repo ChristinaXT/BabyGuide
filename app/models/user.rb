@@ -25,4 +25,15 @@ class User < ApplicationRecord
            []
        end
     end
+
+    scope :users_with_most_requests, -> { User.joins(:requests).group('users.id').order('count(users.id)desc').limit(1)}
+
+    #limit() ?
+    #first ? (can't use first or last in scope method)
+    # Most?
+    # {where(most: most)}
+    # booleans?
+    #select{ |checklist| checklist.requests.size > all }
+
+
 end
