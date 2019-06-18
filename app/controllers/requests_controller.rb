@@ -3,7 +3,12 @@ class RequestsController < ApplicationController
   def index
     @requests = Request.all.most
   end
-  
+
+  #scope method
+  def finished_requests
+  @requests = Request.finished_requests
+  end
+
   def new
     @request = Request.new(checklist_id: params[:checklist_id])
   end

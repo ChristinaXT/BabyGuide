@@ -1,9 +1,6 @@
 class UsersRequestsController < ApplicationController
 
-  #scope method
-  def finished_users_requests
-  @users_requests = UsersRequest.finished_users_requests
-  end
+
 
   def update
     @user_request = UsersRequest.find_by(id: params[:id])

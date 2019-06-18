@@ -1,11 +1,10 @@
-<h1>Finished Users Requests</h1>
+<h1>Finished Requests</h1>
 
 <table class="table">
 
-
-<% @users_requests.finished_users_requests.each do |users_request| %>
+<% @requests.finished_requests.each do |request| %>
   <tr>
-   <td><%= users_request.item %></td>
+   <td><%= request.item %></td>
   </tr>
 
   <% end %>
