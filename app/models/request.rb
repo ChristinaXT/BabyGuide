@@ -28,7 +28,9 @@ class Request < ApplicationRecord
   end
 
   scope :finished_requests, -> { where('finished')}
-  scope :requests_with_kids_in_note, -> { includes('note').where(:kids)}
+  #scope :requests_with_kids_in_note, -> { select('note').where(:kids)}
 
-
+#{ where(:note_kids)}
+# {where(note_contains_kids :true)}
+#scope :requests_with_kids_in_note, -> { where('note').includes(content: "kids")}
 end

@@ -1,16 +1,8 @@
 class RequestsController < ApplicationController
 
-  #def index
-    #@requests = Request.all.most
-  #end
-
   #scope method
   def finished_requests
     @requests = current_user.requests.finished_requests
-  end
-
-  def requests_with_kids_in_note
-    @requests = Request.requests_with_kids_in_note
   end
 
   def new
@@ -32,7 +24,7 @@ class RequestsController < ApplicationController
   end
 
   def edit
-     @request = Request.find_by(id: params[:id])
+    @request = Request.find_by(id: params[:id])
   end
 
   def update
@@ -45,21 +37,21 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-     request = Request.find_by(id: params[:id])
-     @checklist = request.checklist
-     request.destroy
-     redirect_to checklist_path(@checklist)
+    request = Request.find_by(id: params[:id])
+    @checklist = request.checklist
+    request.destroy
+    redirect_to checklist_path(@checklist)
   end
 
    private
 
   def request_params
-      params.require(:request).permit(
-        :item,
-        :note,
-        :checklist_id,
-        :finished,
-        user_ids: []
+    params.require(:request).permit(
+      :item,
+      :note,
+      :checklist_id,
+      :finished,
+      user_ids: []
       )
   end
 end
