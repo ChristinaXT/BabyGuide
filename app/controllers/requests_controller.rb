@@ -7,7 +7,6 @@ class RequestsController < ApplicationController
   #scope method
   def finished_requests
     @requests = current_user.requests.finished_requests
-
   end
 
   def requests_with_kids_in_note
