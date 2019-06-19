@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
   @requests = Request.finished_requests
   end
 
-  def whatever
+  def requests_with_kids_in_note
     @requests = Request.requests_with_kids_in_note
   end
 
