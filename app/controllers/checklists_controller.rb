@@ -2,6 +2,7 @@ class ChecklistsController < ApplicationController
 
   def index
    @checklists = Checklist.all
+   @checklists = Checklist.search(params[:search])
   end
 
   def new
@@ -47,7 +48,8 @@ class ChecklistsController < ApplicationController
  def checklist_params
     params.require(:checklist).permit(
       :item,
-      :user_id
+      :user_id,
+      :search
     )
  end
 end
