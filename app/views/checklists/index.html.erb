@@ -35,6 +35,10 @@
       <%= link_to "Finished Users Requests", requests_finished_requests_path(@request)%><br><br>
     </div>
 
+    <div>
+      <%= link_to "Unfinished Requests", requests_unfinished_requests_path(@request)%><br><br>
+    </div>
+
 
 
     <p><%= link_to "Create a New Request Checklist", new_user_checklist_path(current_user) %></p>

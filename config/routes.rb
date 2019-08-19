@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     get '/users/users_with_most_requests' => 'users#users_with_most_requests'
     get '/requests/finished_requests' => 'requests#finished_requests'
+    get 'requests/unfinished_requests' => 'requests#unfinished_requests'
   #  get '/requests/whatever' => 'checklists#something'
 
 

@@ -5,6 +5,10 @@ class RequestsController < ApplicationController
     @requests = current_user.requests.finished_requests
   end
 
+  def unfinished_requests
+    @requests = current_user.requests.unfinished_requests
+  end
+
   def new
     @request = Request.new(checklist_id: params[:checklist_id])
   end

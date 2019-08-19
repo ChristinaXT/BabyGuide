@@ -27,9 +27,13 @@ class Request < ApplicationRecord
     finished ? 'Text-success' : 'Text-danger'
   end
 
+
+  #Client.where.not(locked: true)
+
+  #Request.where.not(finished: true)
   scope :finished_requests, -> { where('finished')}
   #scope :requests_with_kids_in_note, -> { select('note').where(:kids)}
-
+  scope :unfinished_requests, -> { where.not('finished')}
 #{ where(:note_kids)}
 # {where(note_contains_kids :true)}
 #scope :requests_with_kids_in_note, -> { where('note').includes(content: "kids")}
